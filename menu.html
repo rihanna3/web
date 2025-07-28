@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú - Sabores de mi tierra</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo-text">Sabores de mi tierra</div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Menú </a></li>
+                <li><a href="acercade.html">Acerca de</a></li>
+                <li><a href="redessociales.html">Redes sociales</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+            </ul>
+        </div>
+        <div class="search-bar">
+            <button class="search-icon">Q</button>
+            <input type="text" id="searchInput" placeholder="Búsqueda">
+            <button class="clear-icon" onclick="clearSearch()">X</button>
+        </div>
+    </div>
+
+    <div class="menu-sections-container">
+        <div class="menu-category-item" id="desayunos">
+            <img src="huevos.jpg" alt="Icono Desayuno" class="category-main-icon">
+            <h3>Desayunos</h3>
+            <p>huevos con flijol acompañado mde queso, platanos con crema...</p>
+        </div>
+
+        <div class="menu-category-item" id="almuerzos">
+            <img src="almuerzos.png" alt="Icono Almuerzo" class="category-main-icon">
+            <h3>Almuerzos</h3>
+            <p> ¡Todo chapin! Pepian, mole de pollo...</p>
+        </div>
+
+        <div class="menu-category-item" id="cenas">
+            <img src="cenas.jpg" alt="Icono Cena" class="category-main-icon">
+            <h3>Cenas</h3>
+            <p>Chuchitos, tamales con pan, garnachas...</p>
+        </div>
+
+        <div class="menu-category-item" id="postres-bebidas">
+            <img src="postres.jpg" alt="Icono Postre y Bebida" class="category-main-icon">
+            <h3>Postres y Bebidas</h3>
+            <p>Flan, pan de banano, pie de manzana, cafe, agua, te (al gusto)</p>
+        </div>
+    </div>
+
+<script>
+ 
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function() {
+    const filter = this.value.toLowerCase();
+    const items = document.querySelectorAll('.menu-category-item');
+
+    items.forEach(item => {
+      const title = item.querySelector('h3').textContent.toLowerCase();
+      if(title.includes(filter)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+
+ 
+  function clearSearch() {
+    searchInput.value = '';
+    const items = document.querySelectorAll('.menu-category-item');
+    items.forEach(item => {
+      item.style.display = '';
+    });
+    searchInput.focus();
+  }
+  //agregado para que pueda realizar la busqueda deseada 
+</script>
+
+</body>
+</html>
